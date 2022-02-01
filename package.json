@@ -1,0 +1,23 @@
+{
+  "name": "tiny-url-clone",
+  "version": "1.0.0",
+  "description": "Tiny URL Clone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs421sp22-homework/homework-1-Boccca2014.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodeJS",
+    "react",
+    "mongodb"
+  ],
+  "author": "Sebastian Cabrejos",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
