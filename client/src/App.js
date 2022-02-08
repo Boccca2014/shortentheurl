@@ -1,7 +1,7 @@
 /* client/src/App.js. */
 import React from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import Home from "./views/Home";
 import List from "./views/List";
 // import Links from './views/Links';
