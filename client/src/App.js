@@ -1,15 +1,12 @@
-/* client/src/App.js.
-* - Import dependencies.
-*/
-import React, { Component } from 'react';
+/* client/src/App.js. */
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './views/Home';
 import List from './views/List';
+// import Links from './views/Links';
 
-
-class App extends Component {
-  render() {
+export default function App() {
     const App = () => (
       <div>
         <Switch>
@@ -17,14 +14,11 @@ class App extends Component {
           <Route path='/list' component={List}/>
         </Switch>
       </div>
-    )
+    );
+  
     return (
       <Switch>
         <App/>
       </Switch>
     );
-  }
 }
-
-
-export default App;
