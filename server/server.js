@@ -1,16 +1,16 @@
 require("dotenv").config(); // Loads .env file
 
 const mongoose = require("mongoose");
-// console.log(mongoose);
 const express = require("express");
 var cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const routes = require("./routes/routes");
 const path = require("path");
-const { faker } = require('@faker-js/faker');
+// console.log(mongoose);
+// const { faker } = require('@faker-js/faker');
 
-const API_PORT = 8000;
+const API_PORT = process.env.PORT || 4567;
 const app = express();
 app.use(cors());
 
@@ -44,24 +44,3 @@ app.use("/api", routes);
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
-
-// TODO: remove this, only for testing
-// const Schema = mongoose.Schema;
-
-// const UserSchema = new Schema({
-//   username: { type: String },
-//   password: { type: String },
-// });
-
-// const User = mongoose.model("User", UserSchema);
-
-// User.create(
-//   {
-//     username: faker.internet.userName(),
-//     password: faker.internet.password(),
-//   },
-//   (err, user) => {
-//     if (err) console.log(err);
-//     console.log(user);
-//   }
-// );
