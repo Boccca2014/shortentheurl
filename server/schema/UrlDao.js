@@ -1,19 +1,19 @@
 const Url = require("./Url");
 
 class UrlDao {
-  constructor() {
-  }
+  constructor() {}
 
-  async create(longUrl, shortUrl = "temp") {
-    // const filter = shortUrl ? { shortUrl } : {};
-    // console.log(filter);
-    // const url = await Url.find(filter);
-    // if (url === {}) {
-    //   return url;
-    // } else {
-    const url = await Url.create({ longUrl, shortUrl });
-    return url;
-    // }
+  async create(longUrl, shortUrl = "") {
+    if (shortUrl !== "") {
+      const url = await Url.find({ shortUrl });
+      return url;
+    } else if (longUrl !== "") {
+      const url = await Url.find({ longUrl });
+      return url;
+    } else {
+      const url = await Url.create({ longUrl, shortUrl });
+      return url;
+    }
   }
 
   async readAll() {

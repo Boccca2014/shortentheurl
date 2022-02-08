@@ -7,9 +7,10 @@ const urls = new UrlDao();
 
 router.post("/urls", (req, res) => {
   const longUrl = req.body.longUrl;
+  const shortUrl = req.body.shortUrl;
   
   urls
-    .create(longUrl)
+    .create(longUrl, shortUrl)
     .then((urls) =>
       res.status(201).json({
         data: urls,
