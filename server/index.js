@@ -7,8 +7,6 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const routes = require("./routes/routes");
 const path = require("path");
-// console.log(mongoose);
-// const { faker } = require('@faker-js/faker');
 
 const API_PORT = process.env.PORT || 4567;
 const app = express();
@@ -30,7 +28,7 @@ db.once("open", () => console.log("connected to the database"));
 // checks if connection with the database is successful
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-// (optional) only made for logging and
+// made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

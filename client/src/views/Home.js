@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
 
 export default function Home() {
   const [urlInput, setUrlInput] = useState({
@@ -15,15 +13,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("Submitted", urlInput);
-    // axios
-    //   .post("/api/shorten", {
-    //     longUrl: value,
-    //   })
-    //   .then((res) => {
-    //     console.log("res", res);
-    //   });
-    // console.log(JSON.stringify(urlInput));
+
     fetch("http://localhost:4567/api/urls", {
       method: "POST",
       headers: {
