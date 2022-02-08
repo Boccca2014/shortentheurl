@@ -1,19 +1,22 @@
-const express = require('express');
+const UrlDao = require("../schema/UrlDao.js");
+const express = require("express");
 const router = express.Router();
-const path = require('path');
+// const path = require("path");
 
-// this is our get method.
-// An api endpoint that returns a short list of items
-router.get('/getList', (req,res) => {
-   const list = ["item1", "item2", "item3"];
-   res.json(list);
-   console.log('Sent list of items');
-});
+const urls = new UrlDao();
 
+router.post("/urls", (req, res) => {
+  // const shortUrl = req.body.shortUrl;
+  const longUrl = req.body.longUrl;
 
-// Handles any requests that don't match the ones above
-router.get('*', (req,res) =>{
-   res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  urls
+    .create(longUrl)
+    .then((urls) =>
+      res.status(201).json({
+        data: urls,
+      })
+    )
+    .catch((err) => errorHandler(res, 400, err));
 });
 
 module.exports = router;
