@@ -19,7 +19,7 @@ const dbname = process.env.DB_ADMIN_DB;
 const dbRoute = `mongodb+srv://${adminName}:${password}@tinyurl-api.xaguz.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
 // connects our back end code with the database
-mongoose.connect(dbRoute, { useNewUrlParser: true });
+mongoose.connect(dbRoute, { useNewUrlParser: true, useUnifiedTopology: true });
 
 let db = mongoose.connection;
 

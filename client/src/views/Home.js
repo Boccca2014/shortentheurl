@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import validator from "validator";
 
 export default function Home() {
   const [urlInput, setUrlInput] = useState({
     longUrl: "",
-    shortUrl: ""
+    shortUrl: "",
   });
 
   const handleChange = (event) => {
@@ -14,21 +15,28 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:4567/api/urls", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(urlInput),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data", data);
-      });
+    // validate url before sending POST request
+    if (validator.isURL(urlInput.longUrl)) {
+      fetch("http://localhost:4567/api/urls", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(urlInput),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("data", data);
+        });
 
-    setUrlInput({
-      longUrl: "",
-    });
+      setUrlInput({
+        longUrl: "",
+      });
+    } else {
+      setUrlInput({
+        longUrl: "INVALID URL",
+      });
+    }
   };
 
   return (
@@ -46,7 +54,7 @@ export default function Home() {
         />
       </div>
       <button
-        className="rounded-xl border-black border-2 px-2 bg-emerald-500 text-white hover:bg-emerald-700 active:bg-violet-700"
+        className="rounded-xl border-black border-1 px-2 bg-emerald-500 text-white hover:bg-emerald-700 active:bg-violet-700"
         onClick={handleSubmit}
       >
         ENTER
