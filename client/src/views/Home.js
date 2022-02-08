@@ -26,15 +26,16 @@ export default function Home() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("data", data);
+          // console.log("data", data);
+          setUrlInput({
+            longUrl: "",
+            shortUrl: data.shortUrl,
+          });
         });
-
-      setUrlInput({
-        longUrl: "",
-      });
     } else {
       setUrlInput({
         longUrl: "INVALID URL",
+        shortUrl: "",
       });
     }
   };
@@ -60,8 +61,7 @@ export default function Home() {
         ENTER
       </button>
       <div className="text-center py-5">
-        <span>Short URL: PLACEHOLDER </span>
-        {/* {inputProps.value} */}
+        <span>Short URL: {urlInput.shortUrl} </span>
       </div>
     </div>
   );
