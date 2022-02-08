@@ -6,9 +6,8 @@ const router = express.Router();
 const urls = new UrlDao();
 
 router.post("/urls", (req, res) => {
-  // const shortUrl = req.body.shortUrl;
   const longUrl = req.body.longUrl;
-
+  
   urls
     .create(longUrl)
     .then((urls) =>
@@ -18,5 +17,16 @@ router.post("/urls", (req, res) => {
     )
     .catch((err) => errorHandler(res, 400, err));
 });
+
+function errorHandler(res, status, error) {
+  res.status(status).json({
+    errors: [
+      {
+        status: status,
+        detail: error.message || error,
+      },
+    ],
+  });
+}
 
 module.exports = router;

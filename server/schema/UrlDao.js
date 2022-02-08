@@ -4,14 +4,14 @@ class UrlDao {
   constructor() {
   }
 
-  async create(shortUrl = "", longUrl) {
+  async create(longUrl) {
     // const filter = shortUrl ? { shortUrl } : {};
     // console.log(filter);
     // const url = await Url.find(filter);
     // if (url === {}) {
     //   return url;
     // } else {
-    const url = await Url.create({ shortUrl, longUrl });
+    const url = await Url.create({ longUrl });
     return url;
     // }
   }
