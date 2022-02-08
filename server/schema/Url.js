@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const urlSchema = new Schema({
-  content: { type: String, required: true },
+  longUrl: { type: String, required: true },
 });
 
 const Url = mongoose.model("Url", urlSchema);

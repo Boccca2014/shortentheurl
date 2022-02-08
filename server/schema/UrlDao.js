@@ -4,10 +4,17 @@ class UrlDao {
   constructor() {
   }
 
-  async create(content) {
-    const url = await Url.create({ content });
+  async create(shortUrl = "", longUrl) {
+    // const filter = shortUrl ? { shortUrl } : {};
+    // console.log(filter);
+    // const url = await Url.find(filter);
+    // if (url === {}) {
+    //   return url;
+    // } else {
+    const url = await Url.create({ shortUrl, longUrl });
     return url;
-  }  
+    // }
+  }
 
   async readAll() {
     const urls = await Url.find(filter);
@@ -19,7 +26,7 @@ class UrlDao {
     return url;
   }
 
-  async update(id, content, author) {
+  async update(id, content) {
     const url = await Url.findByIdAndUpdate(
       id,
       { content },
