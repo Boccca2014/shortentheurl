@@ -15,7 +15,8 @@ class UrlDao {
       // console.log(url);
       if (url === null) {
         // generate shortUrl
-        const baseUrl = "http://localhost:4567";
+        // const baseUrl = "http://localhost:4567";
+        const baseUrl = "https://s-url1.herokuapp.com";
         urlCode = shortid.generate();
         shortUrl = baseUrl + '/' + urlCode;
         // save urls to db
