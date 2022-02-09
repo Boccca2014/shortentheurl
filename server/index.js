@@ -37,8 +37,8 @@ app.use(logger("dev"));
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client/")));
 
-// append /api for our http requests
-app.use("/api", routes);
+// use "" for our http requests
+app.use("", routes);
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

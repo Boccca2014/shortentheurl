@@ -1,19 +1,36 @@
 const Url = require("./Url");
+const shortid = require('shortid');
 
 class UrlDao {
   constructor() {}
 
-  async create(longUrl, shortUrl = "") {
+  async create(longUrl, shortUrl = "", urlCode="") {
     if (shortUrl !== "") {
-      const url = await Url.find({ shortUrl });
-      return url;
-    } else if (longUrl !== "") {
-      const url = await Url.find({ longUrl });
+      // check if shortUrl is already in use
+      const url = await Url.findOne({ shortUrl });
       return url;
     } else {
-      const url = await Url.create({ longUrl, shortUrl });
+      // check if longUrl is cached
+      const url = await Url.findOne({ longUrl });
+      // console.log(url);
+      if (url === null) {
+        // generate shortUrl
+        const baseUrl = "http://localhost:4567";
+        urlCode = shortid.generate();
+        shortUrl = baseUrl + '/' + urlCode;
+        // save urls to db
+        const url = await Url.create({ longUrl, shortUrl, urlCode });
+        return url;
+      }
       return url;
     }
+  }
+
+  async redirectUrl(newUrlCode) {
+    const url = await Url.findOne({
+      urlCode: newUrlCode,
+    });
+    return url;
   }
 
   async readAll() {
