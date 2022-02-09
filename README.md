@@ -12,7 +12,7 @@ shortened version upon clicking "Enter." This is done primarily by using a pre-b
 called [`nanoid`](https://github.com/ai/nanoid/) to generate the codes for 
 the new shortened urls. It has a relatively low probability of collisions and
 was implemented in a single line of code. When the code is generated, it's appended
-to the backend API's domain (i.e. https://s-url1.herokuapp.com/A2B456) and stored
+to the backend API's domain (i.e. https://s-url1.herokuapp.com/qJnIxt) and stored
 in the database. When the user accessing this address, it redirects them to the 
 long url link, which was implemented with Express. The remaining work was configuring
 the React code for frontend to update the states of the long and short url sections.
