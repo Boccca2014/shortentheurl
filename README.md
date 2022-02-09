@@ -34,7 +34,7 @@ $ npm start
 It should automatically open at `http://localhost:3000`.
 
 One way to deploy the frontend is with [Netlify](https://www.netlify.com/).
-You must use the following deploy settings for this to deploy correctly.
+You must use the following settings for this to work correctly.
 ```
 Base directory: /client
 Build command: npm run build
@@ -50,7 +50,7 @@ $ npm start
 You must set up your own MongoDB cluster, there's a free tier with
 [MongoDB Atlas](https://www.mongodb.com/atlas). You must then create
 a `.env` and insert your credentials. You can refer to the `server/index.js`
-`process.env.` to find these variables.
+then `process.env.` to find these variables.
 
 To deploy the server, you can use [Heroku](https://www.heroku.com/). You must
 configure the "Config Vars" (same as the `.env` vars) accordingly for this build 
