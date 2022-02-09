@@ -10,10 +10,10 @@ class UrlDao {
     const url = await Url.findOne({ longUrl });
     if (url === null) {
       // uncomment next line for local testing and comment out other baseUrl
-      const baseUrl = "http://localhost:4567";
+      // const baseUrl = "http://localhost:4567";
 
       // generate shortUrl
-      // const baseUrl = "https://s-url1.herokuapp.com";
+      const baseUrl = "https://s-url1.herokuapp.com";
       urlCode = nanoid(6);
       shortUrl = baseUrl + "/" + urlCode;
 
