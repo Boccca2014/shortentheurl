@@ -39,14 +39,6 @@ export default function Home() {
     }
   };
 
-  // const handleKeyPress = (e) => {
-  //   console.log("hello");
-  //   //it triggers by pressing the enter key
-  //   if (e.keyCode === 13 || e.code === "Enter" || e.code === "NumpadEnter") {
-  //     handleSubmit();
-  //   }
-  // };
-
   return (
     <div className="text-center">
       <h1 className="text-5xl font-bold pt-4">Shorten the URL</h1>
@@ -56,7 +48,6 @@ export default function Home() {
           placeholder="Enter any long url"
           type="text"
           onChange={handleChange}
-          // onKeyPress={handleKeyPress}
           id="longUrl"
           name="longUrl"
           value={urlInput.longUrl}

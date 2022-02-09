@@ -2,8 +2,6 @@ const UrlDao = require("../schema/UrlDao.js");
 const express = require("express");
 const router = express.Router();
 const validator = require("validator");
-// const path = require("path");
-
 const urls = new UrlDao();
 
 router.post("/api/urls", (req, res) => {
