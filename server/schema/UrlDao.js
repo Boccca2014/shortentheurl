@@ -5,11 +5,11 @@ class UrlDao {
   constructor() {}
 
   async create(longUrl, shortUrl = "", urlCode="") {
-    if (shortUrl !== "") {
-      // check if shortUrl is already in use
-      const url = await Url.findOne({ shortUrl });
-      return url;
-    } else {
+    // if (shortUrl !== "") {
+    //   // check if shortUrl is already in use
+    //   const url = await Url.findOne({ shortUrl });
+    //   return url;
+    // } else {
       // check if longUrl is cached
       const url = await Url.findOne({ longUrl });
       // console.log(url);
@@ -23,7 +23,7 @@ class UrlDao {
         return url;
       }
       return url;
-    }
+    // }
   }
 
   async redirectUrl(newUrlCode) {

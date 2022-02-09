@@ -26,11 +26,10 @@ router.post("/api/urls", (req, res) => {
 
 router.get("/:code", (req, res) => {
   const newUrlCode = req.params.code;
-  
+
   urls
     .redirectUrl(newUrlCode)
     .then((url) => {
-      console.log(url);
       if (url) {
         return res.redirect(url.longUrl);
       } else {
