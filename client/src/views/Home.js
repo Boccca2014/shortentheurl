@@ -17,7 +17,7 @@ export default function Home() {
 
     // validate url before sending POST request
     if (validator.isURL(urlInput.longUrl)) {
-      fetch("http://localhost:4567/api/urls", {
+      fetch("https://s-url1.herokuapp.com/api/urls", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
