@@ -6,7 +6,7 @@ It uses Tailwind for the Frontend CSS. The frontend was deployed via Netlify at
 https://shorthentheurl.netlify.app/. The backend was deployed via Heroku at
 https://s-url1.herokuapp.com/.
 
-**Note**: Please try to test entering a URL more than once. Since the backend is
+**Note**: Please try to wait a few seconds until the shortened URL appears. Since the backend is
 deployed on the Heroku Free tier, it sometimes takes more than one try to activate/"wake"
 the server.
 
