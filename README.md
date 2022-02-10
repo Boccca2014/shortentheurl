@@ -4,7 +4,12 @@
 This project was built using the MERN (MongoDB, Express, React, and Node) stack.
 It uses Tailwind for the Frontend CSS. The frontend was deployed via Netlify at
 https://shorthentheurl.netlify.app/. The backend was deployed via Heroku at
-https://s-url1.herokuapp.com/. (More notes on deployment can be found under `Build A Local Instance` below)
+https://s-url1.herokuapp.com/.
+**Note**: Please try to test entering a URL more than once. Since the backend is
+deployed on the Heroku Free tier, it sometimes takes more than one try to activate/"wake"
+the server.
+
+More notes on deployment can be found under `Build A Local Instance` below.
 
 ## The Results
 The primary (and sole) functionality of this application is that the a long URL can be converted to 
